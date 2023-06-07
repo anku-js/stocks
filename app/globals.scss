@@ -1,0 +1,381 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.page-wrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: #292f4b;
+  .slider-container {
+    @keyframes scroll {
+      0% {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(calc(-250px * 7));
+      }
+    }
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    background-color: #3b3f4f;
+    .slide-track {
+      animation: scroll 20s linear infinite;
+      animation-duration: 20s;
+      animation-timing-function: linear;
+      animation-delay: 0s;
+      animation-iteration-count: infinite;
+      animation-direction: normal;
+      animation-fill-mode: none;
+      animation-play-state: running;
+      animation-name: scroll;
+      display: flex;
+      gap: 3rem;
+      align-items: center;
+      width: calc(250px * 50);
+      font-size: 14px;
+      line-height: 1.5;
+      padding: 10px 0px;
+      .slide-companyName,
+      .slide-price {
+        font-size: 18px;
+        font-weight: 600;
+        color: #fff;
+        padding: 0 3px;
+      }
+      .slide-change {
+        font-weight: 500;
+        font-size: 18px;
+        padding: 0 3px;
+      }
+      .slide-arrowIcon {
+        font-size: 30px;
+        .downArrow {
+          color: rgb(0, 255, 87);
+        }
+        .upArrow {
+          color: rgb(248, 46, 46);
+        }
+      }
+    }
+    a {
+      display: flex;
+      align-items: center;
+    }
+  }
+  .navbar-container {
+    background-color: #292e40;
+    color: #fff;
+    box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.75);
+    .navbar-items {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px;
+      .navbar-left {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-left: 20px;
+        .coin-logo {
+          color: #fff;
+          width: 40px;
+          height: 40px;
+          font-size: 40px;
+        }
+        .navbar-name {
+          font-size: 30px;
+        }
+      }
+      .navbar-right {
+        .search-wrapper {
+          min-width: 400px;
+          .search-bar-label {
+            position: relative;
+            display: flex;
+            align-items: center;
+            background-color: #212639;
+            font-size: 20px;
+            padding: 8px 0;
+            cursor: text;
+            border: 1px solid transparent;
+            .search-icon {
+              color: #dcdcdc;
+              font-size: 24px;
+              margin: 10px 20px 10px 30px;
+            }
+            .search-bar-input {
+              background: transparent;
+            }
+            ::placeholder {
+              color: #dcdcdc;
+            }
+            .search-bar-input:focus {
+              outline: none;
+            }
+          }
+          .search-bar-label:hover {
+            border: #1774ff 1px solid;
+          }
+          .popularStocks-list-wrapper {
+            position: absolute;
+            max-width: 400px;
+            max-height: 400px;
+            overflow-y: auto;
+            border-radius: 0 0 30px 30px;
+            background-color: #212639;
+            .popularStocks-list {
+              display: flex;
+              justify-content: space-between;
+              padding: 12px 30px;
+              border-top: 1px solid #2f354c;
+              color: #9096ab;
+              .stocks-name {
+                .stocks-fullname {
+                  font-weight: 600;
+                }
+                .stocks-abbreviation {
+                  font-size: 12px;
+                }
+              }
+              .stocks-price-wrapper {
+                text-align: center;
+                .stocks-price {
+                  font-weight: 600;
+                }
+                .stocks-pricechange {
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.overall-market-container {
+  display: flex;
+  flex-direction: column;
+  padding: 50px 0px;
+  gap: 40px;
+  .heroPage-container {
+    display: flex;
+    padding: 0 70px;
+    align-items: center;
+    justify-content: space-between;
+    .heroPage-right {
+      width: 55%;
+      h1 {
+        font-size: 50px;
+        color: #fff;
+        margin-bottom: 16px;
+        span {
+          font-weight: 900;
+          color: linear-gradient(90.15deg, #6db8fd 0.17%, #1774ff 104.9%);
+          -webkit-text-fill-color: transparent;
+          background: -webkit-linear-gradient(
+            90.15deg,
+            #6db8fd 0.17%,
+            #1774ff 104.9%
+          );
+          background-clip: text;
+          -webkit-background-clip: text;
+        }
+      }
+      .heroPage-trendingStocks {
+        display: flex;
+        gap: 10px;
+        .trendingStock {
+          font-size: 16px;
+          background-color: #3b3f4f;
+          padding: 10px;
+          border-radius: 5px;
+          cursor: pointer;
+          color: #fff;
+        }
+      }
+      p {
+        width: 73%;
+        color: #fff;
+        font-size: 20px;
+        margin: 30px 0;
+      }
+      .getStarted {
+        outline: 0 none;
+        text-decoration: none;
+        button {
+          display: flex;
+          align-items: center;
+          gap: 5px;
+          justify-content: center;
+          padding: 15px 40px;
+          color: #fff;
+          border-radius: 5px;
+          font-weight: 600;
+          font-size: 22px;
+          background-image: linear-gradient(
+            90deg,
+            #6db8fd,
+            #1774ff,
+            #6db8fd,
+            #1774ff
+          );
+          background-size: 300% 100%;
+          box-shadow: 0 1px 1px 0 rgba(65, 132, 234, 0.75);
+        }
+      }
+      .getStarted:hover {
+        scale: 1.03;
+        background-position: 100% 0;
+        transition: all 0.4s ease-in-out;
+      }
+    }
+    .index-contianer {
+      display: grid;
+      grid-template: auto/ repeat(2, 1fr);
+      grid-gap: 20px;
+      .sensex-container,
+      .nifty-container,
+      .niftyFinance-container,
+      .niftyBank-container {
+        background: linear-gradient(
+          180deg,
+          hsla(0, 0%, 55%, 0.2),
+          rgba(72, 72, 72, 0)
+        );
+        box-shadow: 0 5px 10px #192231;
+        color: #fff;
+        border-radius: 10px;
+        height: 340px;
+        width: 300px;
+        .sensex,
+        .nifty,
+        .niftyFinance,
+        .niftyBank {
+          padding: 20px;
+          .index-type {
+            font-weight: 700;
+            font-size: 18;
+            margin-bottom: 10px;
+          }
+          .index-value {
+            display: flex;
+            font-weight: 600;
+            h1 {
+              font-size: 22px;
+              padding: 0 8px;
+            }
+            .upArrow {
+              font-size: 30px;
+              color: rgb(0, 255, 87);
+            }
+            .downArrow {
+              font-size: 30px;
+              color: rgb(248, 46, 46);
+            }
+          }
+          .index-change-details {
+            display: flex;
+            padding: 10px 0;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+  }
+
+  .movers-container {
+    width: 100%;
+    display: flex;
+    gap: 40px;
+    padding: 0 70px;
+    margin: 100px 0;
+    .gainers-container,
+    .losers-container {
+      background: linear-gradient(
+        180deg,
+        hsla(0, 0%, 55%, 0.2),
+        rgba(72, 72, 72, 0)
+      );
+      box-shadow: 0 5px 10px #192231;
+      padding: 20px;
+      color: #fff;
+      border-radius: 10px;
+      backdrop-filter: blur(20px);
+      width: 50%;
+      .gainers,
+      .losers {
+        p {
+          font-weight: 700;
+          font-size: 40px;
+          margin-bottom: 14px;
+        }
+        table {
+          width: 100%;
+          th {
+            text-align: left;
+            font-size: 16px;
+            padding: 20px 5px;
+            color: #c9d7de;
+          }
+          td {
+            padding: 10px 5px;
+            font-weight: 500;
+            font-size: 20px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+      .gainers,
+      .losers {
+        .comp-name {
+          width: 60%;
+          padding-right: 20px;
+        }
+        .price {
+          width: 20%;
+        }
+      }
+      .gainers {
+        .percent {
+          color: rgb(0, 255, 87);
+          width: 20%;
+        }
+        .change {
+          color: rgb(0, 255, 87);
+          width: 20%;
+        }
+      }
+      .losers {
+        .percent {
+          color: rgb(248, 46, 46);
+          width: 20%;
+        }
+        .change {
+          color: rgb(248, 46, 46);
+          width: 20%;
+        }
+      }
+    }
+  }
+}
+
+.footer-wrapper {
+  background-color: #292e40;
+  color: #fff;
+  box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.75);
+  -webkit-box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 0px 0px 14px 4px rgba(0, 0, 0, 0.75);
+  .footer-actions {
+    display: flex;
+    padding: 10px;
+    gap: 10px;
+  }
+}
