@@ -1,18 +1,20 @@
-"use client";
-import { useState, useEffect } from "react";
+import Link from "next/link";
 
-export default function Movers() {
-  const moversDataFromLocalStorage = JSON.parse(localStorage.getItem("movers"));
-  const [marketMovers, setMarketMovers] = useState(
-    moversDataFromLocalStorage ? moversDataFromLocalStorage : []
+async function getData() {
+  const res = await fetch(
+    "https://portal.tradebrains.in/api/index/NIFTY/movers/",
+    {
+      cache: "no-cache",
+    }
   );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+  return res.json();
+}
 
-  useEffect(function () {
-    fetch("https://portal.tradebrains.in/api/index/NIFTY/movers/")
-      .then((res) => res.json())
-      .then((data) => setMarketMovers(data));
-    localStorage.setItem("movers", JSON.stringify(marketMovers));
-  }, []);
+export default async function Movers() {
+  const data = await getData();
 
   return (
     <div className="movers-container">
@@ -27,22 +29,23 @@ export default function Movers() {
                 <th>Percentage</th>
                 <th>Change</th>
               </tr>
-              {marketMovers.gainers.map(
-                ({ comp_name, close, percent, change }) => (
-                  <tr key={comp_name}>
-                    <td className="comp-name">
-                      <a>{comp_name}</a>
-                    </td>
-                    <td className="price">{close}</td>
-                    <td className="percent">+{percent}</td>
-                    <td className="change">+{change}</td>
-                  </tr>
-                )
-              )}
+              {data.gainers.map(({ symbol, comp_name, close, percent, change }) => (
+                <tr key={comp_name}>
+                  <td className="comp-name">
+                    <Link href={`/components/Stock/${symbol}`}>
+                      {comp_name}
+                    </Link>
+                  </td>
+                  <td className="price">{close}</td>
+                  <td className="percent">+{percent}</td>
+                  <td className="change">+{change}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
       </div>
+      {/* `/Stocks/${comp_name}`  components/Stock/[slug]*/}
       <div className="losers-container">
         <div className="losers">
           <p>Losers</p>
@@ -54,18 +57,18 @@ export default function Movers() {
                 <th>Percentage</th>
                 <th>Change</th>
               </tr>
-              {marketMovers.losers.map(
-                ({ comp_name, close, percent, change }) => (
-                  <tr key={comp_name}>
-                    <td className="comp-name">
-                      <a>{comp_name}</a>
-                    </td>
-                    <td className="price">{close}</td>
-                    <td className="percent">{percent}</td>
-                    <td className="change">{change}</td>
-                  </tr>
-                )
-              )}
+              {data.losers.map(({ symbol, comp_name, close, percent, change }) => (
+                <tr key={comp_name}>
+                  <td className="comp-name">
+                  <Link href={`/components/Stock/${symbol}`}>
+                      {comp_name}
+                    </Link>
+                  </td>
+                  <td className="price">{close}</td>
+                  <td className="percent">{percent}</td>
+                  <td className="change">{change}</td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>

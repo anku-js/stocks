@@ -1,5 +1,5 @@
 import Navbar from "./components/Navbar";
-import Graphs from "./components/Graphs";
+import HomePage from "./components/HomePage";
 import Footer from "./components/Footer";
 import Slider from "./components/Slider";
 
@@ -8,10 +8,9 @@ export default function Home() {
     <div className="page-wrapper">
       <Slider />
       <Navbar />
-      <Graphs />
+      <HomePage />
       <Footer />
     </div>
   );
 }
 
-//#745e44

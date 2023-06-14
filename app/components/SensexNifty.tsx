@@ -1,6 +1,10 @@
 "use client";
 import { useState, useEffect } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
+import NiftyChart from "./NiftyChart";
+import SensexChart from "./SensexChart";
+import NiftyBankChart from "./NiftyBankChart";
+import NiftyFinance from "./NiftyFinanceChart";
 
 export default function SensexNifty() {
   const [sensexData, setSensexData] = useState([]);
@@ -36,124 +40,139 @@ export default function SensexNifty() {
       .then((res) => res.json())
       .then((data) => setNiftyBankData(data));
   }, []);
-  console.log(sensexData);
 
   return (
     <div className="index-contianer">
       <div className="sensex-container">
-        {sensexData.map(({ open, close, percent, change }) => (
-          <div className="sensex">
-            <p className="index-type">SENSEX</p>
-            <div className="index-value">
-              <p>
-                {close > open ? (
-                  <AiFillCaretUp className="upArrow" />
-                ) : (
-                  <AiFillCaretDown className="downArrow" />
-                )}
-              </p>
-              <h1>{close}</h1>
-            </div>
-            <div className="index-change-details">
-              <div
-                className="index-change"
-                style={{
-                  color: close > open ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
-                }}
-              >
-                {close > open
-                  ? `+ ${percent} (+ ${change})`
-                  : `- ${percent} (- ${change})`}
+        {sensexData.map(({ prev_close, close, percent, change }) => (
+          <div key={1}>
+            <div className="sensex">
+              <p className="index-type">SENSEX</p>
+              <div className="index-value">
+                <p>
+                  {close > prev_close ? (
+                    <AiFillCaretUp className="upArrow" />
+                  ) : (
+                    <AiFillCaretDown className="downArrow" />
+                  )}
+                </p>
+                <h1>{close}</h1>
+              </div>
+              <div className="index-change-details">
+                <div
+                  className="index-change"
+                  style={{
+                    color:
+                      close > prev_close ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
+                  }}
+                >
+                  {close > prev_close
+                    ? `+ ${percent}% (+ ${change})`
+                    : `${percent}% (${change})`}
+                </div>
               </div>
             </div>
+            <SensexChart prev_close={prev_close} close={close} />
           </div>
         ))}
       </div>
 
       <div className="nifty-container">
-        {niftyData.map(({ open, close, percent, change }) => (
-          <div className="nifty">
-            <p className="index-type">NIFTY</p>
-            <div className="index-value">
-              <p>
-                {close > open ? (
-                  <AiFillCaretUp className="upArrow" />
-                ) : (
-                  <AiFillCaretDown className="downArrow" />
-                )}
-              </p>
-              <h1>{close}</h1>
-            </div>
-            <div className="index-change-details">
-              <div
-                className="index-change"
-                style={{
-                  color: close > open ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
-                }}
-              >
-                {close > open
-                  ? `+ ${percent} (+ ${change})`
-                  : `- ${percent} (- ${change})`}
+        {niftyData.map(({ prev_close, close, percent, change }) => (
+          <div key={2}>
+            <div className="nifty" >
+              <p className="index-type">NIFTY</p>
+              <div className="index-value">
+                <p>
+                  {close > prev_close ? (
+                    <AiFillCaretUp className="upArrow" />
+                  ) : (
+                    <AiFillCaretDown className="downArrow" />
+                  )}
+                </p>
+                <h1>{close}</h1>
+              </div>
+              <div className="index-change-details">
+                <div
+                  className="index-change"
+                  style={{
+                    color:
+                      close > prev_close ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
+                  }}
+                >
+                  {close > prev_close
+                    ? `+ ${percent}% (+ ${change})`
+                    : `${percent}% (${change})`}
+                </div>
               </div>
             </div>
+            <NiftyChart prev_close={prev_close} close={close} />
           </div>
         ))}
       </div>
       <div className="niftyFinance-container">
-        {niftyFinanceData.map(({ open, close, percent, change }) => (
-          <div className="niftyFinance">
-            <p className="index-type">NIFTY FINANCE </p>
-            <div className="index-value">
-              <p>
-                {close > open ? (
-                  <AiFillCaretUp className="upArrow" />
-                ) : (
-                  <AiFillCaretDown className="downArrow" />
-                )}
-              </p>
-              <h1>{close}</h1>
-            </div>
-            <div className="index-change-details">
-              <div
-                className="index-change"
-                style={{
-                  color: close > open ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
-                }}
-              >
-                {close > open
-                  ? `+ ${percent} (+ ${change})`
-                  : `- ${percent} (- ${change})`}
+        {niftyFinanceData.map(({ prev_close, close, percent, change }) => (
+          <div  key={3}>
+            <div className="niftyFinance">
+              <p className="index-type">NIFTY FINANCE </p>
+              <div className="index-value">
+                <p>
+                  {close > prev_close ? (
+                    <AiFillCaretUp className="upArrow" />
+                  ) : (
+                    <AiFillCaretDown className="downArrow" />
+                  )}
+                </p>
+                <h1>{close}</h1>
+              </div>
+              <div className="index-change-details">
+                <div
+                  className="index-change"
+                  style={{
+                    color:
+                      close > prev_close ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
+                  }}
+                >
+                  {close > prev_close
+                    ? `+ ${percent}% (+ ${change})`
+                    : `${percent}% (${change})`}
+                </div>
               </div>
             </div>
+            <NiftyFinance prev_close={prev_close} close={close} />
           </div>
         ))}
       </div>
       <div className="niftyBank-container">
-        {niftyBankData.map(({ open, close, percent, change }) => (
-          <div className="niftyBank">
-            <p className="index-type">NIFTY BANK</p>
-            <div className="index-value">
-              <p>
-                {close > open ? (
-                  <AiFillCaretUp className="upArrow" />
-                ) : (
-                  <AiFillCaretDown className="downArrow" />
-                )}
-              </p>
-              <h1>{close}</h1>
-            </div>
-            <div className="index-change-details">
-              <div
-                className="index-change"
-                style={{
-                  color: close > open ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
-                }}
-              >
-                {close > open
-                  ? `+ ${percent} (+ ${change})`
-                  : `- ${percent} (- ${change})`}
+        {niftyBankData.map(({ prev_close, close, percent, change }) => (
+          <div key={4}>
+            <div className="niftyBank">
+              <p className="index-type">NIFTY BANK</p>
+              <div className="index-value">
+                <p>
+                  {close > prev_close ? (
+                    <AiFillCaretUp className="upArrow" />
+                  ) : (
+                    <AiFillCaretDown className="downArrow" />
+                  )}
+                </p>
+                <h1>{close}</h1>
+              </div>
+              <div className="index-change-details">
+                <div
+                  className="index-change"
+                  style={{
+                    color:
+                      close > prev_close ? "rgb(0, 255, 87)" : "rgb(248, 46, 46)",
+                  }}
+                >
+                  {close > prev_close
+                    ? `+ ${percent}% (+ ${change})`
+                    : `${percent}% (${change})`}
+                </div>
               </div>
             </div>
+            <NiftyBankChart prev_close={prev_close} close={close} />
           </div>
         ))}
       </div>

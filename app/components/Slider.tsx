@@ -3,8 +3,7 @@ import { useEffect, useState } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 export default function Slider() {
-  const dataFromLocalStorage = JSON.parse(localStorage.getItem("sliderData"));
-  const [sliderData, setSliderData] = useState(dataFromLocalStorage ? dataFromLocalStorage : []);
+  const [sliderData, setSliderData] = useState({});
 
   useEffect(function () {
     fetch(
@@ -12,14 +11,12 @@ export default function Slider() {
     )
       .then((res) => res.json())
       .then((data) => setSliderData(data));
-    localStorage.setItem("sliderData", JSON.stringify(sliderData));
   }, []);
 
-  console.log(sliderData);
   return (
     <div className="slider-container">
       <div className="slide-track">
-        {sliderData.results.map(({symbol, curr_price, prev_close, per_change, change}) => (
+        {sliderData?.results?.map(({symbol, curr_price, prev_close, per_change, change}) => (
           <a className="slide-list" key={symbol}>
             <span className="slide-companyName">{symbol}</span>
             <span className="slide-price">{curr_price}</span>

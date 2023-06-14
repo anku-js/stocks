@@ -7,7 +7,7 @@ export default function HeroPage() {
       <SensexNifty />
       <div className="heroPage-right">
         <h1>
-          Become a Better <span>Stock Investor!</span>
+          Open the doors of <span>Investment!</span>
         </h1>
         <div className="heroPage-trendingStocks">
           <a className="trendingStock">Reliance Industries Ltd</a>
