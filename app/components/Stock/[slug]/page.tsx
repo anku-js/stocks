@@ -1,5 +1,5 @@
-import "./page.scss";
-import "../../../globals.scss";
+import "./page.sass";
+import "../../../globals.ssss";
 import Slider from "../../Slider";
 import Navbar from "../../Navbar";
 import StocksDetails from "./StocksDetails";
