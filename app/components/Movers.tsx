@@ -58,7 +58,6 @@ export default function Movers() {
           </table>
         </div>
       </div>
-      {/* `/Stocks/${comp_name}`  components/Stock/[slug]*/}
       <div className="losers-container">
         <div className="losers">
           <p>Losers</p>

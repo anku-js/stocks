@@ -5,8 +5,18 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 ChartJS.register(CategoryScale);
 
-export default function SensexChart({prev_close, close}) {
-  const [sensexDataForChart, setSensexDataForChart] = useState([]);
+interface Props {
+  prev_close: number,
+  close: number
+};
+
+interface DataForChart {
+  close?: number,
+  date?: number
+}
+
+export default function SensexChart({prev_close, close}: Props) {
+  const [sensexDataForChart, setSensexDataForChart] = useState<DataForChart[]>([]);
 
   const closeValue = sensexDataForChart.map((data) => data.close);
   const closingDate = sensexDataForChart.map((data) => data.date);

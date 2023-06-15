@@ -5,12 +5,40 @@ import StockChart from "./StockChart";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
+interface StockData {
+  close: number;
+  percent: number;
+  change: number;
+  prev_close: number;
+}
+
+interface StockReturnData {
+  one_month: number;
+  six_months: number;
+  one_year: number;
+  three_year: number;
+  five_year: number;
+}
+
+interface StocksKeymetrics {
+  mcap: number;
+  industry: string;
+  industry_pe: number;
+  stk_exchange: string;
+}
+interface Props {
+  stockData: StockData[];
+  stockName: string;
+  stockReturnData: StockReturnData;
+  stocksKeymetrics: StocksKeymetrics;
+}
+
 export default function StocksDetails({
   stockData,
   stockName,
   stockReturnData,
   stocksKeymetrics,
-}) {
+}: Props) {
   const [stockIsFavourite, setStockIsFavourite] = useState(false);
 
   function handleClick() {

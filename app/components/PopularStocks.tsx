@@ -20,7 +20,7 @@ export default function PopularStocks() {
       .then((res) => res.json())
       .then((data) => setStockData(data));
   }, []);
-  // console.log(stocksData)
+
   return (
     <div className="popularStocks-list-wrapper">
       {stocksData?.volume_movers?.map(
@@ -29,7 +29,6 @@ export default function PopularStocks() {
             <div className="stocks-name">
               <a className="stocks-fullname">{comp_name}</a>
               <p className="stocks-abbreviation"><Link href={`/components/Stock/${symbol}`}>{symbol}</Link></p>
-              {/* <p className="stocks-abbreviation">{symbol}</p> */}
             </div>
             <div className="stocks-price-wrapper">
               <p className="stocks-price">{close}</p>

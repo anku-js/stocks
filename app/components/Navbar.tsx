@@ -3,11 +3,18 @@ import { useState, useEffect } from "react";
 import { BsCoin, BsSearch } from "react-icons/bs";
 import PopularStocks from "./PopularStocks";
 import SearchedStock from "./SearchedStock";
+import { ChangeEvent } from 'react';
+
+interface SearchedCompany {
+  company: string;
+  symbol: string;
+}
+
 
 export default function Navbar() {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [searchValue, setSearchValue ] = useState("")
-  const [ searchedStock, setSearchedStock] = useState([])
+  const [ searchedStock, setSearchedStock] = useState<SearchedCompany[]>([])
   function handleOnFocus() {
     setIsInputFocused(true);
   }
@@ -16,22 +23,7 @@ export default function Navbar() {
     setIsInputFocused(true);
   }
 
-  // async function getSearchedStocks(searchValue) {
-  //   const res = await fetch(
-  //     `https://portal.tradebrains.in/api/test-search?keyword=${searchValue}&length=4`,
-  //     {
-  //       next: {
-  //         revalidate: 5
-  //       }
-  //     }
-  //   );
-  //   if (!res.ok) {
-  //     throw new Error("Failed to fetch data");
-  //   }
-  //   return res.json()
-  // }
-
-  function handleChange(event) {
+  function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     setSearchValue(value) 
 console.log("anku")

@@ -4,26 +4,20 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 ChartJS.register(CategoryScale);
 
-type StockName = {
+interface Props {
   stockName: string;
+  prev_close: number,
+  close: number
 };
 
-// async function getStocksChart(stockName: StockName) {
-//   const res = await fetch(
-//     `https://portal.tradebrains.in/api/stock/${stockName}/prices?days=1&type=INTRADAY`,
-//     { next: { revalidate: 60 } }
-//   );
-//   if (!res.ok) {
-//     throw new Error("Failed to fetch data");
-//   }
-//   return res.json();
-// }
+interface DataForChart {
+  close?: number,
+  date?: number
+}
 
+export default function StockChart({ stockName, prev_close, close }: Props) {
 
-
-export default function StockChart({ stockName, prev_close, close }) {
-
-const [dataForChart, setDataForChart] = useState([])  
+const [dataForChart, setDataForChart] = useState<DataForChart[]>([])  
 
   const closeValue = dataForChart.map((data) => data.close);
   const closingDate = dataForChart.map((data) => data.date);
@@ -42,7 +36,7 @@ const [dataForChart, setDataForChart] = useState([])
       },
     ],
   };
-
+  console.log(dataForChart)
   useEffect(function () {
     fetch(
         `https://portal.tradebrains.in/api/stock/${stockName}/prices?days=1&type=INTRADAY`

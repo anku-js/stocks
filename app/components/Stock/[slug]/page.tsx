@@ -3,13 +3,8 @@ import "../../../globals.scss";
 import Slider from "../../Slider";
 import Navbar from "../../Navbar";
 import StocksDetails from "./StocksDetails";
-interface Params {
-  params: {
-    slug: string
-  }
-}
 
-async function getStocksReturn(symbol:Params) {
+async function getStocksReturn(symbol: string) {
   const res = await fetch(
     `https://portal.tradebrains.in/api/stock-returns/${symbol}/`,
     {
@@ -22,7 +17,7 @@ async function getStocksReturn(symbol:Params) {
   return res.json()
 }
 
-async function getStocksKeymetrics(symbol:Params) {
+async function getStocksKeymetrics(symbol: string) {
   const res = await fetch(
     `https://portal.tradebrains.in/api/stock/${symbol}/consolidated/key-metrics/`,
     {
@@ -35,7 +30,7 @@ async function getStocksKeymetrics(symbol:Params) {
   return res.json()
 }
 
-async function getStocksData(symbol:Params) {
+async function getStocksData(symbol: string) {
   const res = await fetch(
     `https://portal.tradebrains.in/api/stock/${symbol}/prices?days=1&type=INTRADAY&limit=1`,
     {
@@ -49,7 +44,7 @@ async function getStocksData(symbol:Params) {
   return res.json()
 }
 
-export default async function Stocks({params}) {
+export default async function Stocks({params}: { params: { slug: string } }) {
 const stockData = await getStocksData(params.slug)
 const stockReturnData = await getStocksReturn(params.slug)
 const stocksKeymetrics = await getStocksKeymetrics(params.slug)

@@ -1,11 +1,23 @@
 "use client";
-
 import Link from "next/link"
 import { useEffect, useState } from "react";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
+interface CompanyDetails {
+      symbol: string,
+      curr_price: number,
+      prev_close:number,
+      per_change:number,
+      change:number
+}
+
+interface SliderData {
+  results? : CompanyDetails[]
+}
+
+
 export default function Slider() {
-  const [sliderData, setSliderData] = useState({});
+  const [sliderData, setSliderData] = useState<SliderData>({});
 
   useEffect(function () {
     fetch(

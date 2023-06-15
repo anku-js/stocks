@@ -5,8 +5,18 @@ import { Chart as ChartJS } from "chart.js/auto";
 import { CategoryScale } from "chart.js";
 ChartJS.register(CategoryScale);
 
-export default function NiftyBankChart({ prev_close, close }) {
-  const [niftyBankDataForChart, setNiftyBankDataForChart] = useState([]);
+interface Props {
+  prev_close: number,
+  close: number
+};
+
+interface DataForChart {
+  close?: number,
+  date?: number
+}
+
+export default function NiftyBankChart({ prev_close, close }:Props) {
+  const [niftyBankDataForChart, setNiftyBankDataForChart] = useState<DataForChart[]>([]);
 
   const closeValue = niftyBankDataForChart.map((data) => data.close);
   const closingDate = niftyBankDataForChart.map((data) => data.date);
