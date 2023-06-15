@@ -1,20 +1,33 @@
+"use client"
+import {useEffect, useState} from "react"
 import Link from "next/link";
-
-async function getData() {
-  const res = await fetch(
-    "https://portal.tradebrains.in/api/index/NIFTY/movers/",
-    {
-      cache: "no-cache",
-    }
-  );
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  return res.json();
+interface Gainers {
+  comp_name: string,
+  symbol: string,
+  close: number,
+  percent: number,
+  change: number,
+}
+interface Losers {
+  comp_name: string,
+  symbol: string,
+  close: number,
+  percent: number,
+  change: number
 }
 
+interface MarketMovers {
+  gainers?: Gainers[];
+  losers?: Losers[];
+}
 export default async function Movers() {
-  const data = await getData();
+  const [marketMovers, setMarketMovers] = useState<MarketMovers>({});
+
+  useEffect(function () {
+    fetch("https://portal.tradebrains.in/api/index/NIFTY/movers/")
+      .then((res) => res.json())
+      .then((data) => setMarketMovers(data));
+  }, []);
 
   return (
     <div className="movers-container">
@@ -29,7 +42,7 @@ export default async function Movers() {
                 <th>Percentage</th>
                 <th>Change</th>
               </tr>
-              {data.gainers.map(({ symbol, comp_name, close, percent, change }) => (
+              {marketMovers?.gainers?.map(({ symbol, comp_name, close, percent, change }) => (
                 <tr key={comp_name}>
                   <td className="comp-name">
                     <Link href={`/components/Stock/${symbol}`}>
@@ -57,7 +70,7 @@ export default async function Movers() {
                 <th>Percentage</th>
                 <th>Change</th>
               </tr>
-              {data.losers.map(({ symbol, comp_name, close, percent, change }) => (
+              {marketMovers?.losers?.map(({ symbol, comp_name, close, percent, change }) => (
                 <tr key={comp_name}>
                   <td className="comp-name">
                   <Link href={`/components/Stock/${symbol}`}>

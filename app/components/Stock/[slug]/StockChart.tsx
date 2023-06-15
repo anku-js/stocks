@@ -49,7 +49,7 @@ const [dataForChart, setDataForChart] = useState([])
     )
       .then((res) => res.json())
       .then((data) => setDataForChart(data));
-  }, []);
+  }, [stockName]);
 
   return (
     <div className="chart-container">

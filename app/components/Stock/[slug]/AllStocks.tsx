@@ -13,7 +13,7 @@ const industryFromLocalStorage = JSON.parse(localStorage.getItem("industry"));
       .then((res) => res.json())
       .then((data) => setIndustryName(data));
       localStorage.setItem("industry", JSON.stringify(industryName));
-  }, []);
+  }, [industryName]);
 
   return (
     <div className="industryName-container">

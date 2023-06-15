@@ -60,6 +60,10 @@
         }
       }
     }
+    .slide-track:hover {
+      animation-play-state: paused;
+      cursor: pointer
+  }
     a {
       display: flex;
       align-items: center;

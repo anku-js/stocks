@@ -62,7 +62,8 @@
             display: flex;
             gap: 10px;
             margin-left: 20px;
-            .selectedStock-shortName, .selectedStock-industry {
+            .selectedStock-shortName,
+            .selectedStock-industry {
               background-color: #292e3f;
               border-radius: 5px;
               padding: 5px 10px;
@@ -77,7 +78,7 @@
             align-items: center;
             gap: 60px;
             font-size: 26px;
-            margin-top: -40px;
+            margin-top: 10px;
             .selectedStock-value-priceChange {
               display: flex;
               flex-direction: column;
@@ -153,53 +154,220 @@
     }
   }
 }
-
-@media screen and (max-width: 760px) {
+@media screen and (max-width: 1480px) {
   .page-wrapper {
     .stocksPage-container {
-      padding: 50px 20px;
+      padding: 50px 70px;
+      padding-bottom: 0;
       .stocksPage {
         display: flex;
         flex-direction: column-reverse;
+        gap: 0;
         .industryName-container {
           width: 100%;
           .all-stocks {
-            gap: 10px;
-            margin-bottom: 20px;
             font-size: 30px;
-            font-weight: 800;
+            margin-left: 30px;
           }
           .industryName-list {
             .industryName {
-              padding: 10px 16px;
+              padding: 16px 22px;
               font-size: 16px;
-              font-weight: 500;
             }
           }
         }
         .selectedStock-container {
           width: 100%;
-          .selectedStock-heading {
-            display: flex;
-            justify-content: space-between;
-            .selectedStock-name {
-              font-size: 26px;
+          .selectedStock-top {
+            padding: 20px;
+            .selectedStock-heading {
+              .selectedStock-name {
+                font-size: 28px;
+                margin-left: 0px;
+              }
+              .favouriteStock-icon {
+                .heart-icon {
+                  font-size: 28px;
+                }
+              }
             }
-            .favouriteStock-icon {
-              .heart-icon {
-                font-size: 26px;
+            .selectedStock-shortName-industry {
+              display: flex;
+              margin-left: 0px;
+              margin-top: 10px;
+              .selectedStock-shortName,
+              .selectedStock-industry {
+                font-size: 14px;
+                margin: 0px;
+              }
+            }
+            .selectedStock-details {
+              display: flex;
+              gap: 20px;
+              font-size: 20px;
+              margin-top: 10px;
+              .selectedStock-value-priceChange {
+                .selectedStock-priceChange {
+                  font-size: 14px;
+                }
+              }
+              .marketcap-container {
+                .marketcap-p {
+                  font-size: 14px;
+                }
+              }
+              .industry-pe-container {
+                .industry-pe-p {
+                  font-size: 14px;
+                }
               }
             }
           }
-          .selectedStock-shortName {
-            font-size: 16px;
+          .chart-container {
+            margin-top: 50px;
+            height: 280px;
           }
-          .selectedStock-details {
-            font-size: 20px;
+        }
+      }
+      .stocks-return-container {
+        margin-top: 50px;
+        .stocks-return {
+          display: flex;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 1280px) {
+  .page-wrapper {
+    .stocksPage-container {
+      padding: 50px 70px;
+      .stocksPage {
+        .industryName-container {
+          width: 100%;
+        }
+        .selectedStock-container {
+          width: 100%;
+          .selectedStock-top {
+            padding: 20px;
+            .selectedStock-heading {
+              .selectedStock-name {
+                font-size: 28px;
+                margin-left: 0px;
+              }
+              .favouriteStock-icon {
+                .heart-icon {
+                  font-size: 28px;
+                }
+              }
+            }
           }
-          .selectedStock-priceChange {
-            display: flex;
-            font-size: 14px;
+          .chart-container {
+            margin-top: 50px;
+            height: 280px;
+          }
+        }
+      }
+      .stocks-return-container {
+        margin-top: 50px;
+        .stocks-return {
+          display: flex;
+          flex-direction: column;
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 860px) {
+  .page-wrapper {
+    .stocksPage-container {
+      padding: 50px 20px;
+      .stocksPage {
+        .industryName-container {
+          width: 100%;
+          .all-stocks {
+            font-size: 30px;
+            margin-left: 30px;
+          }
+          .industryName-list {
+            .industryName {
+              padding: 16px 22px;
+              font-size: 16px;
+            }
+          }
+        }
+        .selectedStock-container {
+          width: 100%;
+          .selectedStock-top {
+            padding: 20px;
+            .selectedStock-heading {
+              .selectedStock-name {
+                font-size: 28px;
+                margin-left: 0px;
+              }
+              .favouriteStock-icon {
+                .heart-icon {
+                  font-size: 28px;
+                }
+              }
+            }
+            .selectedStock-shortName-industry {
+              display: flex;
+              flex-direction: column;
+              margin-left: 0px;
+              margin-top: 10px;
+              .selectedStock-shortName,
+              .selectedStock-industry {
+                font-size: 14px;
+                margin: 0px;
+              }
+            }
+            .selectedStock-details {
+              display: flex;
+              flex-direction: column;
+              justify-content: flex-start;
+              align-items: flex-start;
+              gap: 20px;
+              font-size: 20px;
+              margin-top: 20px;
+              .selectedStock-value-priceChange {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .selectedStock-value {
+                  display: flex;
+                  align-items: center;
+                }
+                .selectedStock-priceChange {
+                  font-size: 14px;
+                }
+              }
+              .marketcap-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .marketcap-p {
+                  font-size: 14px;
+                }
+              }
+              .industry-pe-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: flex-start;
+                align-items: flex-start;
+                .industry-pe-p {
+                  font-size: 14px;
+                }
+              }
+            }
+          }
+          .chart-container {
+            margin-top: 50px;
+            height: 280px;
           }
         }
       }

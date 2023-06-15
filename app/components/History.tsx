@@ -1,9 +1,27 @@
 "use client";
 import { useState, useEffect } from "react";
-import { AiOutlineHeart, AiOutlineFieldTime } from "react-icons/ai"; 
+import { AiOutlineHeart, AiOutlineFieldTime } from "react-icons/ai";
+
+interface Gainers {
+  comp_name: string;
+  close: number;
+  percent: number;
+  change: number;
+}
+interface Losers {
+  comp_name: string;
+  close: number;
+  percent: number;
+  change: number;
+}
+
+interface MarketMovers {
+  gainers?: Gainers[];
+  losers?: Losers[];
+}
 
 export default function History() {
-  const [marketMovers, setMarketMovers] = useState({});
+  const [marketMovers, setMarketMovers] = useState<MarketMovers>({});
 
   useEffect(function () {
     fetch("https://portal.tradebrains.in/api/index/NIFTY/movers/")
