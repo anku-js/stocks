@@ -20,7 +20,7 @@ interface MarketMovers {
   gainers?: Gainers[];
   losers?: Losers[];
 }
-export default async function Movers() {
+export default function Movers() {
   const [marketMovers, setMarketMovers] = useState<MarketMovers>({});
 
   useEffect(function () {
