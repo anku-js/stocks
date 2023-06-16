@@ -30,7 +30,7 @@ export default function Movers() {
   }, []);
 
   return (
-    <div className="movers-container">
+    <div id="movers-container">
       <div className="gainers-container">
         <div className="gainers">
           <p>Gainers</p>

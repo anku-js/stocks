@@ -18,17 +18,11 @@ export default function HeroPage() {
           <a className="trendingStock">ITC Ltd</a>
         </div>
         <p className="heroPage-p">
-          Trade brains portal helps investors make efficient stock research and
+          ANKU'S helps investors make efficient stock research and
           analysis by providing quality fundamental data with insightful
           visuals.
         </p>
         <a className="getStarted">
-          <button>
-            Get Started
-            <span>
-              <AiOutlineArrowRight />
-            </span>
-          </button>
         </a>
       </div>
     </section>

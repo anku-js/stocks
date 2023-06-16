@@ -1,8 +1,9 @@
-import "./page.sass";
-import "../../../globals.ssss";
+import "./page.scss";
+import "../../../globals.scss";
 import Slider from "../../Slider";
 import Navbar from "../../Navbar";
 import StocksDetails from "./StocksDetails";
+import Footer from "../../Footer";
 
 async function getStocksReturn(symbol: string) {
   const res = await fetch(
@@ -14,7 +15,7 @@ async function getStocksReturn(symbol: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  return res.json()
+  return res.json();
 }
 
 async function getStocksKeymetrics(symbol: string) {
@@ -27,7 +28,7 @@ async function getStocksKeymetrics(symbol: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  return res.json()
+  return res.json();
 }
 
 async function getStocksData(symbol: string) {
@@ -40,20 +41,25 @@ async function getStocksData(symbol: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  console.log(res)
-  return res.json()
+  console.log(res);
+  return res.json();
 }
 
-export default async function Stocks({params}: { params: { slug: string } }) {
-const stockData = await getStocksData(params.slug)
-const stockReturnData = await getStocksReturn(params.slug)
-const stocksKeymetrics = await getStocksKeymetrics(params.slug)
+export default async function Stocks({ params }: { params: { slug: string } }) {
+  const stockData = await getStocksData(params.slug);
+  const stockReturnData = await getStocksReturn(params.slug);
+  const stocksKeymetrics = await getStocksKeymetrics(params.slug);
   return (
     <div className="page-wrapper">
       <Slider />
       <Navbar />
-      <StocksDetails stockData={stockData} stockName={params.slug} stockReturnData={stockReturnData} stocksKeymetrics={stocksKeymetrics}/>
+      <StocksDetails
+        stockData={stockData}
+        stockName={params.slug}
+        stockReturnData={stockReturnData}
+        stocksKeymetrics={stocksKeymetrics}
+      />
+      <Footer />
     </div>
-
   );
 }

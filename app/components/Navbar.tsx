@@ -5,16 +5,16 @@ import PopularStocks from "./PopularStocks";
 import SearchedStock from "./SearchedStock";
 import { ChangeEvent } from 'react';
 
-interface SearchedCompany {
-  company: string;
-  symbol: string;
+interface SearchedStock {
+  company?: string;
+  symbol?: string;
 }
 
 
 export default function Navbar() {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [searchValue, setSearchValue ] = useState("")
-  const [ searchedStock, setSearchedStock] = useState<SearchedCompany[]>([])
+  const [ searchedStock, setSearchedStock] = useState<SearchedStock[]>([])
   function handleOnFocus() {
     setIsInputFocused(true);
   }

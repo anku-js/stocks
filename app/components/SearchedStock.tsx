@@ -1,9 +1,10 @@
-interface SearchedCompany {
+import Link from "next/link";
+interface Props {
   company?: string;
   symbol?: string;
 }
 interface SearchedStock {
-  searchedStock: SearchedCompany[];
+  searchedStock: Props[];
 }
 
 export default function SearchedStock({ searchedStock }: SearchedStock) {
@@ -12,7 +13,7 @@ export default function SearchedStock({ searchedStock }: SearchedStock) {
       {searchedStock?.map(({ company, symbol }) => (
         <div className="popularStocks-list" key={company}>
           <div className="stocks-name">
-            <a className="stocks-fullname">{company}</a>
+            <Link href={`/components/Stock/${symbol}`} className="stocks-fullname">{company}</Link>
             <p className="stocks-abbreviation">{symbol}</p>
           </div>
         </div>
