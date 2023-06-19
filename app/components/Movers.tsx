@@ -1,6 +1,8 @@
 "use client"
 import {useEffect, useState} from "react"
 import Link from "next/link";
+import { BsEmojiSmile } from "react-icons/bs"
+import { TfiFaceSad} from "react-icons/tfi"
 interface Gainers {
   comp_name: string,
   symbol: string,
@@ -33,7 +35,15 @@ export default function Movers() {
     <div id="movers-container">
       <div className="gainers-container">
         <div className="gainers">
-          <p>Gainers</p>
+        <div className="gainers-heading">
+            <div className="circle-heading">
+              <BsEmojiSmile className="smile-icon" />
+            </div>
+            <div>
+              <p>Gainers</p>
+            </div>
+          </div>
+          {/* <p>Gainers</p> */}
           <table>
             <tbody>
               <tr>
@@ -60,7 +70,14 @@ export default function Movers() {
       </div>
       <div className="losers-container">
         <div className="losers">
-          <p>Losers</p>
+        <div className="losers-heading">
+            <div className="circle-heading">
+              <TfiFaceSad className="sad-icon" />
+            </div>
+            <div>
+              <p>Losers</p>
+            </div>
+          </div>
           <table>
             <tbody>
               <tr>

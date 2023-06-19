@@ -12,14 +12,6 @@ export default function Footer() {
             market with insightful visuals.
           </p>
         </div>
-        <div className="footer-right">
-          <div className="footer-losers">
-            <a href="#movers-container">Top Gainers</a>
-          </div>
-          <div className="footer-losers">
-            <a href="#movers-container">Top Losers</a>
-          </div>
-        </div>
       </div>
     </footer>
   );

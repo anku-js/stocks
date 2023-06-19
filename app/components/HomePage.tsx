@@ -6,7 +6,7 @@ export default function HomePage() {
   return (
     <div className="homePage-container">
       <HeroPage />
-      <History />
+      {/* <History /> */}
       <Movers /> 
     </div>
   );

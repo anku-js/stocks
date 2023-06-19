@@ -41,8 +41,16 @@ async function getStocksData(symbol: string) {
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
-  console.log(res);
   return res.json();
+}
+
+export function generateMetaData({ params }: { params: { slug: string } }) {
+  const stock = params.slug
+  return {
+    title: stock,
+    description: `Information of ${stock}`
+  }
+
 }
 
 export default async function Stocks({ params }: { params: { slug: string } }) {

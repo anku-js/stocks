@@ -26,7 +26,6 @@ export default function Navbar() {
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
     setSearchValue(value) 
-console.log("anku")
   }
 
   useEffect(function () {
@@ -36,7 +35,7 @@ console.log("anku")
       .then((res) => res.json())
       .then((data) => setSearchedStock(data));
   }, [searchValue]);
-console.log(searchedStock)
+
   return (
     <header>
       <nav className="navbar-container">

@@ -1,5 +1,5 @@
 import SensexNifty from "./SensexNifty";
-import { AiOutlineArrowRight } from "react-icons/ai";
+import Link from "next/link";
 
 export default function HeroPage() {
   return (
@@ -10,20 +10,16 @@ export default function HeroPage() {
           Open the doors of <span>Investment!</span>
         </h1>
         <div className="heroPage-trendingStocks">
-          <a className="trendingStock">Reliance Industries Ltd</a>
-          <a className="trendingStock">HDFC Bank Ltd</a>
-          <a className="trendingStock">
-            Tata Consultancy Services Ltd
-          </a>
-          <a className="trendingStock">ITC Ltd</a>
+          <Link href={`/components/Stock/RELIANCE`} className="trendingStock">Reliance Industries Ltd</Link>
+          <Link href={`/components/Stock/HDFCBANK`} className="trendingStock">HDFC Bank Ltd</Link>
+          <Link href={`/components/Stock/TCS`} className="trendingStock">Tata Consultancy Services Ltd</Link>
+          <Link href={`/components/Stock/ITC`} className="trendingStock">ITC Ltd</Link>
         </div>
         <p className="heroPage-p">
-          ANKU'S helps investors make efficient stock research and
-          analysis by providing quality fundamental data with insightful
-          visuals.
+          ANKU'S helps investors make efficient stock research and analysis by
+          providing quality fundamental data with insightful visuals.
         </p>
-        <a className="getStarted">
-        </a>
+        <a className="getStarted"></a>
       </div>
     </section>
   );
