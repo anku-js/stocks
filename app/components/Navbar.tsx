@@ -42,7 +42,7 @@ export default function Navbar() {
         <div className="navbar-items">
           <div className="navbar-left">
             <BsCoin className="coin-logo" />
-            <h1 className="navbar-name">ANKU</h1>
+            <h1 className="navbar-name">ANKU&apos;S Stocks Watch</h1>
           </div>
           <div className="navbar-right">
             <div className="search-wrapper">

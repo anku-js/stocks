@@ -16,7 +16,7 @@ export default function HeroPage() {
           <Link href={`/components/Stock/ITC`} className="trendingStock">ITC Ltd</Link>
         </div>
         <p className="heroPage-p">
-          ANKU'S helps investors make efficient stock research and analysis by
+          ANKU&apos;S helps investors make efficient stock research and analysis by
           providing quality fundamental data with insightful visuals.
         </p>
         <a className="getStarted"></a>
