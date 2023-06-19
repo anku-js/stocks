@@ -26,7 +26,7 @@ export default function PopularStocks() {
         ({ comp_name, symbol, close, percent }) => (
           <div className="popularStocks-list" key={comp_name}>
             <div className="stocks-name">
-              <Link href={`/components/Stock/${symbol}`} className="stocks-fullname">{comp_name}</Link>
+              <Link href={`/Stock/${symbol}`} className="stocks-fullname">{comp_name}</Link>
               <p className="stocks-abbreviation">{symbol}</p>
             </div>
             <div className="stocks-price-wrapper">

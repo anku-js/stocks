@@ -1,21 +1,21 @@
-"use client"
-import {useEffect, useState} from "react"
+"use client";
+import { useEffect, useState } from "react";
 import Link from "next/link";
-import { BsEmojiSmile } from "react-icons/bs"
-import { TfiFaceSad} from "react-icons/tfi"
+import { BsEmojiSmile } from "react-icons/bs";
+import { TfiFaceSad } from "react-icons/tfi";
 interface Gainers {
-  comp_name: string,
-  symbol: string,
-  close: number,
-  percent: number,
-  change: number,
+  comp_name: string;
+  symbol: string;
+  close: number;
+  percent: number;
+  change: number;
 }
 interface Losers {
-  comp_name: string,
-  symbol: string,
-  close: number,
-  percent: number,
-  change: number
+  comp_name: string;
+  symbol: string;
+  close: number;
+  percent: number;
+  change: number;
 }
 
 interface MarketMovers {
@@ -35,7 +35,7 @@ export default function Movers() {
     <div id="movers-container">
       <div className="gainers-container">
         <div className="gainers">
-        <div className="gainers-heading">
+          <div className="gainers-heading">
             <div className="circle-heading">
               <BsEmojiSmile className="smile-icon" />
             </div>
@@ -52,25 +52,25 @@ export default function Movers() {
                 <th>Percentage</th>
                 <th>Change</th>
               </tr>
-              {marketMovers?.gainers?.map(({ symbol, comp_name, close, percent, change }) => (
-                <tr key={comp_name}>
-                  <td className="comp-name">
-                    <Link href={`./Stock/${symbol}`}>
-                      {comp_name}
-                    </Link>
-                  </td>
-                  <td className="price">{close}</td>
-                  <td className="percent">+{percent}</td>
-                  <td className="change">+{change}</td>
-                </tr>
-              ))}
+              {marketMovers?.gainers?.map(
+                ({ symbol, comp_name, close, percent, change }) => (
+                  <tr key={comp_name}>
+                    <td className="comp-name">
+                      <Link href={`/Stock/${symbol}`}>{comp_name}</Link>
+                    </td>
+                    <td className="price">{close}</td>
+                    <td className="percent">+{percent}</td>
+                    <td className="change">+{change}</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>
       </div>
       <div className="losers-container">
         <div className="losers">
-        <div className="losers-heading">
+          <div className="losers-heading">
             <div className="circle-heading">
               <TfiFaceSad className="sad-icon" />
             </div>
@@ -86,18 +86,18 @@ export default function Movers() {
                 <th>Percentage</th>
                 <th>Change</th>
               </tr>
-              {marketMovers?.losers?.map(({ symbol, comp_name, close, percent, change }) => (
-                <tr key={comp_name}>
-                  <td className="comp-name">
-                  <Link href={`./Stock/${symbol}`}>
-                      {comp_name}
-                    </Link>
-                  </td>
-                  <td className="price">{close}</td>
-                  <td className="percent">{percent}</td>
-                  <td className="change">{change}</td>
-                </tr>
-              ))}
+              {marketMovers?.losers?.map(
+                ({ symbol, comp_name, close, percent, change }) => (
+                  <tr key={comp_name}>
+                    <td className="comp-name">
+                      <Link href={`/Stock/${symbol}`}>{comp_name}</Link>
+                    </td>
+                    <td className="price">{close}</td>
+                    <td className="percent">{percent}</td>
+                    <td className="change">{change}</td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
         </div>

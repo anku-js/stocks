@@ -32,22 +32,19 @@
       animation-play-state: running;
       animation-name: scroll;
       display: flex;
-      gap: 3rem;
+      gap: 2rem;
       align-items: center;
       width: calc(250px * 50);
-      font-size: 14px;
+      font-size: 16px;
+      font-weight: 600;
       line-height: 1.5;
-      padding: 10px 0px;
+      padding: 4px 0px;
       .slide-companyName,
       .slide-price {
-        font-size: 18px;
-        font-weight: 600;
         color: #fff;
         padding: 0 3px;
       }
       .slide-change {
-        font-weight: 500;
-        font-size: 18px;
         padding: 0 3px;
       }
       .slide-arrowIcon {

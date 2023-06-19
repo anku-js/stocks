@@ -13,7 +13,7 @@ export default function SearchedStock({ searchedStock }: SearchedStock) {
       {searchedStock?.map(({ company, symbol }) => (
         <div className="popularStocks-list" key={company}>
           <div className="stocks-name">
-            <Link href={`/components/Stock/${symbol}`} className="stocks-fullname">{company}</Link>
+            <Link href={`/Stock/${symbol}`} className="stocks-fullname">{company}</Link>
             <p className="stocks-abbreviation">{symbol}</p>
           </div>
         </div>

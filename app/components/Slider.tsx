@@ -32,7 +32,7 @@ export default function Slider() {
       <div className="slide-track">
         {sliderData?.results?.map(({symbol, curr_price, prev_close, per_change, change}) => (
           <a className="slide-list" key={symbol}>
-            <Link href={`/components/Stock/${symbol}`} className="slide-companyName">{symbol}</Link>
+            <Link href={`/Stock/${symbol}`} className="slide-companyName">{symbol}</Link>
             <span className="slide-price">{curr_price}</span>
             <span
               className="slide-change"
