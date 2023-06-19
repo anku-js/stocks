@@ -20,7 +20,7 @@ export default function Navbar() {
   }
 
   function handleBlur() {
-    setIsInputFocused(true);
+    setIsInputFocused(false);
   }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {

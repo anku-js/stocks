@@ -55,7 +55,7 @@ export default function Movers() {
               {marketMovers?.gainers?.map(({ symbol, comp_name, close, percent, change }) => (
                 <tr key={comp_name}>
                   <td className="comp-name">
-                    <Link href={`/components/Stock/${symbol}`}>
+                    <Link href={`./Stock/${symbol}`}>
                       {comp_name}
                     </Link>
                   </td>
@@ -89,7 +89,7 @@ export default function Movers() {
               {marketMovers?.losers?.map(({ symbol, comp_name, close, percent, change }) => (
                 <tr key={comp_name}>
                   <td className="comp-name">
-                  <Link href={`/components/Stock/${symbol}`}>
+                  <Link href={`./Stock/${symbol}`}>
                       {comp_name}
                     </Link>
                   </td>

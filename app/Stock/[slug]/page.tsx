@@ -1,9 +1,9 @@
 import "./page.scss";
-import "../../../globals.scss";
-import Slider from "../../Slider";
-import Navbar from "../../Navbar";
+import "../../globals.scss";
+import Slider from "../../components/Slider";
+import Navbar from "../../components/Navbar";
 import StocksDetails from "./StocksDetails";
-import Footer from "../../Footer";
+import Footer from "../../components/Footer";
 
 async function getStocksReturn(symbol: string) {
   const res = await fetch(
