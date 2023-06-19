@@ -170,15 +170,13 @@
     display: flex;
     flex-direction: column;
     padding: 50px 0px;
-    gap: 40px;
     .heroPage-container {
       display: flex;
       padding: 0 70px;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 40px;
       .heroPage-right {
-        width: 55%;
         h1 {
           font-size: 50px;
           color: #fff;
@@ -231,6 +229,7 @@
           box-shadow: 0 5px 10px #192231;
           color: #fff;
           border-radius: 10px;
+          width: 270px;
           .sensex,
           .nifty,
           .niftyFinance,
@@ -264,7 +263,9 @@
             }
           }
           .chart-container {
-            height: 60%;
+            canvas {
+              height: 60%;
+            }
           }
         }
       }
