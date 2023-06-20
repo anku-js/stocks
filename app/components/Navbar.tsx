@@ -4,6 +4,7 @@ import { BsCoin, BsSearch } from "react-icons/bs";
 import PopularStocks from "./PopularStocks";
 import SearchedStock from "./SearchedStock";
 import { ChangeEvent } from 'react';
+import Link from "next/link";
 
 interface SearchedStock {
   company?: string;
@@ -42,7 +43,7 @@ export default function Navbar() {
         <div className="navbar-items">
           <div className="navbar-left">
             <BsCoin className="coin-logo" />
-            <h1 className="navbar-name">ANKU&apos;S Stocks Watch</h1>
+            <Link href={"#homePage"} className="navbar-name">ANKU&apos;S Stocks Watch</Link>
           </div>
           <div className="navbar-right">
             <div className="search-wrapper">

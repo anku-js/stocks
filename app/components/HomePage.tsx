@@ -4,7 +4,7 @@ import History from "./History";
 
 export default function HomePage() {
   return (
-    <div id="homePage-container">
+    <div id="homePage">
       <HeroPage />
       {/* <History /> */}
       <Movers /> 
