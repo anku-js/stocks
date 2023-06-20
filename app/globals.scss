@@ -89,6 +89,7 @@
           font-size: 40px;
         }
         .navbar-name {
+          cursor: pointer;
           font-size: 30px;
         }
       }
@@ -163,7 +164,7 @@
     }
   }
 
-  .homePage-container {
+  #homePage-container {
     display: flex;
     flex-direction: column;
     padding: 50px 0px;
