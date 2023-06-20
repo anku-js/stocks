@@ -22,7 +22,7 @@ export default function PopularStocks() {
 
   return (
     <div className="popularStocks-list-wrapper">
-      {stocksData?.volume_movers?.map(
+      {stocksData?.volume_movers?.filter(data => data.symbol !== "NESTLEIND").map(
         ({ comp_name, symbol, close, percent }) => (
           <div className="popularStocks-list" key={comp_name}>
             <div className="stocks-name">

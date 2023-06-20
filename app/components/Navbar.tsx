@@ -20,9 +20,9 @@ export default function Navbar() {
     setIsInputFocused(true);
   }
 
-  function handleBlur() {
-    setIsInputFocused(false);
-  }
+  // function handleBlur() {
+  //   setIsInputFocused(false);
+  // }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -54,7 +54,7 @@ export default function Navbar() {
                   className="search-bar-input"
                   name="searchStocks"
                   placeholder="Search Your Stocks"
-                  onBlur={handleBlur}
+                  // onBlur={handleBlur}
                   onFocus={handleOnFocus}
                   onChange={handleChange}
                 />
