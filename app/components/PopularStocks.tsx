@@ -3,13 +3,13 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 interface Props {
-  comp_name: string,
-  symbol: string,
-  close: number,
-  percent: number
+  comp_name: string;
+  symbol: string;
+  close: number;
+  percent: number;
 }
 interface VolumeMovers {
-  volume_movers?: Props[]
+  volume_movers?: Props[];
 }
 
 export default function PopularStocks() {
@@ -22,11 +22,13 @@ export default function PopularStocks() {
 
   return (
     <div className="popularStocks-list-wrapper">
-      {stocksData?.volume_movers?.filter( data => data.symbol !== "NESTLEIND").map(
+      {stocksData?.volume_movers?.map(
         ({ comp_name, symbol, close, percent }) => (
           <div className="popularStocks-list" key={comp_name}>
             <div className="stocks-name">
-              <Link href={`/Stock/${symbol}`} className="stocks-fullname">{comp_name}</Link>
+              <Link href={`/Stock/${symbol}`} className="stocks-fullname">
+                {comp_name}
+              </Link>
               <p className="stocks-abbreviation">{symbol}</p>
             </div>
             <div className="stocks-price-wrapper">
