@@ -44,6 +44,7 @@ export default function StocksDetails({
   function handleClick() {
     setStockIsFavourite((stockIsFavourite) => !stockIsFavourite);
   }
+  localStorage.setItem("stockIsFavourite", JSON.stringify(stockIsFavourite));
   return (
     <div className="stocksPage-container">
       <div className="stocksPage">
@@ -92,7 +93,7 @@ export default function StocksDetails({
                             : "rgb(248, 46, 46)",
                       }}
                     >
-                      {percent}({change})
+                      {percent}%({change})
                     </p>
                   </div>
                   <div className="marketcap-container">
