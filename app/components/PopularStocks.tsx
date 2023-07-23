@@ -1,6 +1,7 @@
 "use client";
 import Link from "next/link";
 import { useState, useEffect } from "react";
+import { Dispatch, SetStateAction } from "react";
 
 interface Props {
   comp_name: string;
@@ -12,7 +13,11 @@ interface VolumeMovers {
   volume_movers?: Props[];
 }
 
-export default function PopularStocks({ setCanListbeClosed }) {
+interface Props2 {
+  setCanListbeClosed: Dispatch<SetStateAction<boolean>>;
+}
+
+export default function PopularStocks({ setCanListbeClosed }: Props2) {
   const [stocksData, setStockData] = useState<VolumeMovers>({});
   useEffect(function () {
     fetch("https://portal.tradebrains.in/api/index/NIFTY/movers/?limit=8")
@@ -24,7 +29,7 @@ export default function PopularStocks({ setCanListbeClosed }) {
     <div
       className="popularStocks-list-wrapper"
       onMouseEnter={()=>setCanListbeClosed(false)}
-      // onMouseLeave={()=>setCanListbeClosed(false)}
+      onMouseLeave={()=>setCanListbeClosed(true)}
     >
       {stocksData?.volume_movers
         ?.filter((data) => data.symbol !== "NESTLEIND")
