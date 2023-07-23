@@ -16,13 +16,16 @@ export default function Navbar() {
   const [isInputFocused, setIsInputFocused] = useState(false);
   const [searchValue, setSearchValue ] = useState("")
   const [ searchedStock, setSearchedStock] = useState<SearchedStock[]>([])
+  const [ canListbeClosed, setCanListbeClosed] = useState(true)
   function handleOnFocus() {
     setIsInputFocused(true);
   }
 
-  // function handleBlur() {
-  //   setIsInputFocused(false);
-  // }
+  function handleBlur() {
+    if (canListbeClosed) {
+      setIsInputFocused(false);
+    }
+  }
 
   function handleChange(event: ChangeEvent<HTMLInputElement>) {
     const value = event.target.value;
@@ -36,7 +39,7 @@ export default function Navbar() {
       .then((res) => res.json())
       .then((data) => setSearchedStock(data));
   }, [searchValue]);
-
+console.log(isInputFocused)
   return (
     <header>
       <nav className="navbar-container">
@@ -54,14 +57,14 @@ export default function Navbar() {
                   className="search-bar-input"
                   name="searchStocks"
                   placeholder="Search Your Stocks"
-                  // onBlur={handleBlur}
+                  onBlur={handleBlur}
                   onFocus={handleOnFocus}
                   onChange={handleChange}
                 />
               </label>
-              {isInputFocused && searchValue === "" ? <PopularStocks /> : null}
+              {isInputFocused && searchValue === "" ? <PopularStocks setCanListbeClosed={setCanListbeClosed}/> : null}
               {searchValue !== "" ? <SearchedStock searchedStock={searchedStock}/> : null}
-            </div>
+            </div> 
           </div>
         </div>
       </nav>

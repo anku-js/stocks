@@ -48,7 +48,7 @@ export default function StocksDetails({
   return (
     <div className="stocksPage-container">
       <div className="stocksPage">
-        <AllStocks />
+        {/* <AllStocks /> */}
         <div className="selectedStock-container">
           {stockData.map(({ close, percent, change, prev_close }) => (
             <div key={8}>
