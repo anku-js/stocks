@@ -1,8 +1,5 @@
 "use client";
-import { useState, useEffect } from "react";
-// import AllStocks from "./AllStocks";
 import StockChart from "./StockChart";
-import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
 
 interface StockData {
@@ -39,33 +36,15 @@ export default function StocksDetails({
   stockReturnData,
   stocksKeymetrics,
 }: Props) {
-  const favouriteDataFromLocalStorage = JSON.parse(localStorage.getItem("stockIsFavourite"))
-  const [stockIsFavourite, setStockIsFavourite] = useState<boolean>(favouriteDataFromLocalStorage);
-
-  function handleClick() {
-    setStockIsFavourite((stockIsFavourite) => !stockIsFavourite);
-  }
-  useEffect(() => {
-    localStorage.setItem("stockIsFavourite", JSON.stringify(stockIsFavourite));
-  }, [stockIsFavourite]);
-console.log(stockIsFavourite)
   return (
     <div className="stocksPage-container">
       <div className="stocksPage">
-        {/* <AllStocks /> */}
         <div className="selectedStock-container">
           {stockData.map(({ close, percent, change, prev_close }) => (
             <div key={8}>
               <div className="selectedStock-top">
                 <div className="selectedStock-heading">
                   <h1 className="selectedStock-name">{stockName}</h1>
-                  <div className="favouriteStock-icon" onClick={handleClick}>
-                    {stockIsFavourite ? (
-                      <AiFillHeart className="heart-icon" />
-                    ) : (
-                      <AiOutlineHeart className="heart-icon" />
-                    )}
-                  </div>
                 </div>
                 <div className="selectedStock-shortName-industry">
                   <p className="selectedStock-shortName">

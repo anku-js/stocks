@@ -43,7 +43,6 @@ export default function Movers() {
               <p>Gainers</p>
             </div>
           </div>
-          {/* <p>Gainers</p> */}
           <table>
             <tbody>
               <tr>
