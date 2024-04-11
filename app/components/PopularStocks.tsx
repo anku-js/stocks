@@ -43,7 +43,7 @@ export default function PopularStocks({ setCanListbeClosed }: Props2) {
             </div>
             <div className="stocks-price-wrapper">
               <p className="stocks-price">{close}</p>
-              <p className="stocks-pricechange">{percent}</p>
+              <p className="stocks-pricechange">{percent.toFixed(2)}</p>
             </div>
           </div>
         ))}

@@ -1,6 +1,6 @@
 "use client";
-import { useState } from "react";
-import AllStocks from "./AllStocks";
+import { useState, useEffect } from "react";
+// import AllStocks from "./AllStocks";
 import StockChart from "./StockChart";
 import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { AiFillCaretDown, AiFillCaretUp } from "react-icons/ai";
@@ -39,12 +39,16 @@ export default function StocksDetails({
   stockReturnData,
   stocksKeymetrics,
 }: Props) {
-  const [stockIsFavourite, setStockIsFavourite] = useState(false);
+  const favouriteDataFromLocalStorage = JSON.parse(localStorage.getItem("stockIsFavourite"))
+  const [stockIsFavourite, setStockIsFavourite] = useState<boolean>(favouriteDataFromLocalStorage);
 
   function handleClick() {
     setStockIsFavourite((stockIsFavourite) => !stockIsFavourite);
   }
-  localStorage.setItem("stockIsFavourite", JSON.stringify(stockIsFavourite));
+  useEffect(() => {
+    localStorage.setItem("stockIsFavourite", JSON.stringify(stockIsFavourite));
+  }, [stockIsFavourite]);
+console.log(stockIsFavourite)
   return (
     <div className="stocksPage-container">
       <div className="stocksPage">

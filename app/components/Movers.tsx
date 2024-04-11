@@ -59,8 +59,8 @@ export default function Movers() {
                       <Link href={`/Stock/${symbol}`}>{comp_name}</Link>
                     </td>
                     <td className="price">{close}</td>
-                    <td className="percent">+{percent}</td>
-                    <td className="change">+{change}</td>
+                    <td className="percent">+{percent.toFixed(2)}</td>
+                    <td className="change">+{change.toFixed(2)}</td>
                   </tr>
                 )
               )}
@@ -93,8 +93,8 @@ export default function Movers() {
                       <Link href={`/Stock/${symbol}`}>{comp_name}</Link>
                     </td>
                     <td className="price">{close}</td>
-                    <td className="percent">{percent}</td>
-                    <td className="change">{change}</td>
+                    <td className="percent">{percent.toFixed(2)}</td>
+                    <td className="change">{change.toFixed(2)}</td>
                   </tr>
                 )
               )}
